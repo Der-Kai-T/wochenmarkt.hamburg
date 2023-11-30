@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Event;
+use App\Models\Organizer;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -18,5 +20,19 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+
+
+
+        $ba_mitte = Organizer::create([
+            "name" => "Bezirksamt Hamburg-Mitte",
+                ]
+        );
+
+        $hamm = Event::create([
+            "organizer" => $ba_mitte->id,
+            "name" => "Hamm - Bei der Vogelstange",
+            "map_marker" => "53.557193218440595;10.055226087570192"
+        ]);
+
     }
 }
